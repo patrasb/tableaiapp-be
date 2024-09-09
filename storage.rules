@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      function userHasCredits() {
+        return firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.availableCredits > 0;
+      }
+      allow write: if request.resource.metadata['userUid'] == request.auth.uid && userHasCredits();
+      allow read: if resource.metadata['userUid'] == request.auth.uid; 
+    }
+  }
+}

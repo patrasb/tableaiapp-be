@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "exactOptionalPropertyTypes": true, // https://firelordjs.com/firelord/quick_start
+    "noUncheckedIndexedAccess": true, // https://firelordjs.com/firelord/quick_start
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "compileOnSave": true,
+  "exclude": [".env", ".env.prod"],
+  "include": ["src"]
+}
